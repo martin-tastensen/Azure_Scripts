@@ -3,7 +3,7 @@
 Copyright (c) MMT Consult. All rights reserved. Licensed under the MIT license.
 See LICENSE in the project root for license information.
 
-Version 0.0.1
+Version 0.0.2
 Author: Martin Meiner Tästensen
 contact: support@mmt-consult.dk
 #>
@@ -147,10 +147,7 @@ foreach($resource in $vnetexport)
 if($exportdetail -eq "simple")
 {
     $emptyvnets | `
-    Select-Object VNETname, VNETRessourcegroup, VNETLocation, VNETResourceGuid, subscriptionName, subnetname, subnetIPconfig, `
-    subnetResourceNavigationLinks, subnetServiceAssociationLinks, subnetNetworkSecurityGroup, subnetRouteTable, `
-    subnetNatGateway, subnetServiceEndpoints, subnetServiceEndpointPolicies, subnetPrivateEndpoints, `
-    subnetEndpointNetworkPolicies, subnetLinkServiceNetworkPolicies, tenantid, VNETId, subscriptionId, subnetid | `
+    Select-Object VNETname, VNETRessourcegroup, VNETLocation, VNETResourceGuid, subscriptionName, subnetname | `
     Export-Csv -Path $exportpath -Delimiter ';' -Encoding unicode -NoTypeInformation
 }
 elseif($exportdetail -eq "full")
@@ -163,3 +160,4 @@ elseif($exportdetail -eq "full")
     Export-Csv -Path $exportpath -Delimiter ';' -Encoding unicode -NoTypeInformation
 }
 
+write-host "Script is completed, please find the export file at $exportpath" -ForegroundColor green
