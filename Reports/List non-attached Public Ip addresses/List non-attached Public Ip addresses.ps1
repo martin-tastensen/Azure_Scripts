@@ -16,7 +16,7 @@ Param(
     [string]$subscriptionName = $null,
 
     [parameter(mandatory = $true, HelpMessage = "Provide tenantid for the specific tenant")] 
-    [string]$tenantid = "105f1023-7c86-4358-935f-b167313506fb",
+    [string]$tenantid,
 
     [parameter(mandatory = $false, HelpMessage = "Path for CSV export file")] 
     [string]$exportpath = "C:\Temp\non-attached Public IP addresses.csv"
